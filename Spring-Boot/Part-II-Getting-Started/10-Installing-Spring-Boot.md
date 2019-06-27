@@ -88,11 +88,151 @@ Gradle Wrapper 提供了一个当你在需要构建项目的时候"包含" Gradl
 
 入门 Spring Boot 和 Gradle 的更多内容可以在Gradle 插件的参考指南的 [开始章节](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/gradle-plugin/reference/html/#getting-started) 中找到.
 
-## 
+
 
 ## 10.2 安装 Spring Boot CLI
 
 Spring Boot CLI (Command Line Interface) 是一个命令行工具,你可以用它来快速进行原型构建.它使得你可以运行 [Groovy](http://groovy-lang.org/) 脚本, 这意味着你可以使用一个类 Java 的语法而不用使用那么多的样板代码.
+
+你不一定需要使用 CLI来使用 Spring Boot, 但是它肯定是实现一个 Spring 应用的最快方式.
+
+### 10.2.1 手动安装
+
+
+
+你可以从 Spring 软件库下载 Spring CLI :
+
+- [spring-boot-cli-2.1.6.RELEASE-bin.zip](https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.1.6.RELEASE/spring-boot-cli-2.1.6.RELEASE-bin.zip)
+- [spring-boot-cli-2.1.6.RELEASE-bin.tar.gz](https://repo.spring.io/release/org/springframework/boot/spring-boot-cli/2.1.6.RELEASE/spring-boot-cli-2.1.6.RELEASE-bin.tar.gz)
+
+ [snapshot distributions](https://repo.spring.io/snapshot/org/springframework/boot/spring-boot-cli/) 中的快照也同样可以使用.
+
+一旦下载成功后,按照解压后的 [INSTALL.txt](https://raw.github.com/spring-projects/spring-boot/v2.1.6.RELEASE/spring-boot-project/spring-boot-cli/src/main/content/INSTALL.txt) 的安装说明来操作. 总的来说,.zip 文件中会有一个 `spring` 脚本 (`spring.bat` 给 Windows 使用) 在 `bin/ ` 目录中. 或者,你可以使用 `java -jar` 来执行 `.jar` 文件 (一个帮助你确认 classpath 设置正确的脚本).
+
+
+
+### 10.2.2 使用 SDKMAN 安装!
+
+SDKMAN! (软件开发套件管理工具) 可以用来管理多个版本的各种二进制 SDK, 包括 Groovy 还有 Spring Boot CLI. 可以从  [sdkman.io](https://sdkman.io/) 获取 SDKMAN! 并通过下面的命令来安装 Spring Boot :
+
+```shell
+$ sdk install springboot
+$ spring --version
+Spring Boot v2.1.6.RELEASE
+```
+
+如果你为 CLI 开发功能并且希望可以轻松的访问你构建的版本,使用下列命令:
+
+```shell
+$ sdk install springboot dev /path/to/spring-boot/spring-boot-cli/target/spring-boot-cli-2.1.6.RELEASE-bin/spring-2.1.6.RELEASE/
+$ sdk default springboot dev
+$ spring --version
+Spring CLI v2.1.6.RELEASE
+```
+
+前面的指令安装了一个本地的 `spring` 实例叫做 `dev` . 它指向你指定的构建地址,这样你每次重新构建 Spring Boot,`spring` 将会自动更新.
+
+你可以通过下列指令来看到这个效果:
+
+```shell
+$ sdk ls springboot
+
+================================================================================
+Available Springboot Versions
+================================================================================
+> + dev
+* 2.1.6.RELEASE
+
+================================================================================
++ - local version
+* - installed
+> - currently in use
+================================================================================
+```
+
+### 10.2.3 OSX Homebrew 安装
+
+如果你是在 Mac 上并且使用了 [Homebrew](https://brew.sh/), 你可以通过下列指令来安装 Spring Boot CLI:
+
+```shell
+$ brew tap pivotal/tap
+$ brew install springboot
+```
+
+Homebrew 将 `spring` 安装在 `/usr/local/bin`.
+
+> 如果你没有看到该结果,你的 brew 可能已经过时了.在这种情况下,运行 `brew update` 并重试.
+
+
+
+### 10.2.4 使用 MacPorts 安装
+
+如果你是在 Mac 平台上并使用 [MacPorts](https://www.macports.org/), 你可以通过下面的命令来安装 Spring Boot CLI :
+
+```shell
+$ sudo port install spring-boot-cli
+```
+
+### 10.2.5 命令行完成
+
+Spring Boot CLI 包含了提供给 [BASH](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) 和[zsh](https://en.wikipedia.org/wiki/Z_shell) 使用的脚本. 你可以 `source` 脚本 (也叫做 `spring`) 在任意的 shell 或者将它放在你个人或系统的 bash 中来完成初始化.在 Debian 系统中 , 系统级的脚本位于 `/shell-completion/bash` 并且在这个目录中的脚本在新的 shell 启动的时候会全部运行.比如, 手动运行脚本如果你是通过 SDKMAN!安装的, 可以使用下面的脚本:
+
+```shell
+$ . ~/.sdkman/candidates/springboot/current/shell-completion/bash/spring
+$ spring <HIT TAB HERE>
+  grab  help  jar  run  test  version
+```
+
+> 如果你是通过 HomeBrew 或者 MacPorts 来安装的 Spring Boot CLI,命令行完成脚本会自动注册到你的 shell 中.
+
+
+
+### 10.2.6 使用 Windows Scoop 安装
+
+如果你是使用  Windows 并使用了 [Scoop](https://scoop.sh/), 你可以通过下面命令来安装 Spring Boot CLI:
+
+```shell
+> scoop bucket add extras
+> scoop install springboot
+```
+
+Scoop 会将 `spring` 安装到 `~/scoop/apps/springboot/current/bin`.
+
+> 如果你没有看见 app manifest, 你的 scoop 可以已经过时了.这种情况下,运行 `scoop update` 并重试.
+
+
+
+### 10.2.7 快速开始 Spring CLI 示例
+
+你可以使用下面的 web 应用来测试你的安装情况. 创建一个 `app.groovy` 文件来开始这个测试, 如下:
+
+```java
+@RestController
+class ThisWillActuallyRun {
+
+	@RequestMapping("/")
+	String home() {
+		"Hello World!"
+	}
+
+}
+```
+
+然后通过 shell 来运行它:
+
+```shell
+$ spring run app.groovy
+```
+
+
+
+> 
+
+
+
+
+
+
 
 
 
