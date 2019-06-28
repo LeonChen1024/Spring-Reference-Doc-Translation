@@ -226,23 +226,35 @@ $ spring run app.groovy
 
 
 
-> 
+> 第一次运行你的应用时是很慢的,当依赖下载完了.之后的运行将会快很多.
+
+在你喜欢的web 浏览器中打开 `localhost:8080` . 你应该会看到下面的输出:
+
+```
+Hello World!
+```
 
 
 
+## 10.3 从早期的 Spring Boot 版本升级
 
+如果你是从早期的 Spring Boot 的release 版本升级而来的, 可以查看 [项目wiki中的“migration guide” ](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide),它提供了详细的升级指南.同时查看 [“release notes”](https://github.com/spring-projects/spring-boot/wiki) 来了解每一个release 版本中的一些 “新功能和值得注意的地方” .
 
+当升级到一个新的发布版本,一些属性可能被重命名或者移除.Spring Boot 提供了一种分析你的应用环境并在启动时打印诊断信息的方式,但同时也支持在运行时迁移属性.要打开这个功能,添加下面的依赖到你的项目中:
 
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-properties-migrator</artifactId>
+	<scope>runtime</scope>
+</dependency>
+```
 
+> 在环境后期添加的属性比如  `@PropertySource`, 将不会被计算在内.
 
+> 一旦你完成了迁移,请确保从你的项目依赖中删除这个模块.
 
-
-
-
-
-
-
-
+为了升级一个已经存在的  CLI , 要使用恰当的包管理命令 (比如, `brew upgrade`) 或者, 如果你是手动安装的 CLI,按照 [standard instructions](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/getting-started-installing-spring-boot.html#getting-started-manual-cli-installation) 来进行升级, 记得更新你的  `PATH` 环境变量来删除旧的引用.
 
 
 
