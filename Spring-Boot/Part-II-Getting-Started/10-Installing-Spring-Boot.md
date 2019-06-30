@@ -1,5 +1,13 @@
 # 10. Installing Spring Boot
 
+
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/9-System-Requirements.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/11-Developing-Your-First-Spring-Boot-Application.md)     
+
+
+
 Spring Boot 可以在"经典"的 Java 开发工具中使用,也可以通过命令行工具来安装.不管是什么方式,你都需要 [Java SDK v1.8](https://www.java.com/) 或者更高.在你开始之前,你要通过下面的名利来检查你当前的 Java 版本:
 
 ```shell
@@ -255,6 +263,14 @@ Hello World!
 > 一旦你完成了迁移,请确保从你的项目依赖中删除这个模块.
 
 为了升级一个已经存在的  CLI , 要使用恰当的包管理命令 (比如, `brew upgrade`) 或者, 如果你是手动安装的 CLI,按照 [standard instructions](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/getting-started-installing-spring-boot.html#getting-started-manual-cli-installation) 来进行升级, 记得更新你的  `PATH` 环境变量来删除旧的引用.
+
+
+
+
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/9-System-Requirements.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/11-Developing-Your-First-Spring-Boot-Application.md)     
 
 
 

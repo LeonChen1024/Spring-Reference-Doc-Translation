@@ -1,5 +1,15 @@
 # 13. 构建系统
 
+
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/Part-III-Using-Spring-Boot.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/14-Structuring-Your-Code.md)     
+
+
+
+
+
 我们强烈推荐你选择一个支持 [*依赖管理*](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/using-boot-build-systems.html#using-boot-dependency-management) 的构建系统并且可以使用 “Maven Central” 中的仓库. 我们推荐你选择 Maven 或者 Gradle. 使用其他的构建系统 (比如Ant)也是可以运行 Spring Boot 的,但是他们没有得到很好的支持.
 
 ## 13.1 依赖管理
@@ -57,9 +67,11 @@ Maven 用户可以继承 `spring-boot-starter-parent` 项目来获取明智的�
 </properties>
 ```
 
-> 
->
-> ### 
+
+
+> 检查 [`spring-boot-dependencies` pom](https://github.com/spring-projects/spring-boot/tree/v2.1.6.RELEASE/spring-boot-project/spring-boot-dependencies/pom.xml) 来获取支持的属性列表
+
+
 
 ### 13.2.2 不依靠Parent POM 来使用 Spring Boot
 
@@ -129,9 +141,9 @@ Spring Boot 包含了一个 [Maven 插件](https://docs.spring.io/spring-boot/do
 </build
 ```
 
-> 
->
-> ## 
+
+
+> 如果你使用 Spring Boot starts parent pom , 你只需要添加插件即可,不需要对它进行配置除非你想要改变 parent 中定义的设置.
 
 
 
@@ -200,9 +212,11 @@ Spring Boot 包含了一个 [Maven 插件](https://docs.spring.io/spring-boot/do
 </project>
 ```
 
-> 
->
-> ## 
+
+
+> 如果你不想要使用 spring-boot-antlib 模块, 可以查阅 *91.9 章节, “不使用  spring-boot-antlib 通过 Ant 构建一个可执行压缩文件”* 的"怎么做"
+
+
 
 ## 13.5 Starters
 
@@ -301,3 +315,16 @@ Starters 是一个你可以在你的应用中使用的方便的依赖描述的�
 
 
 > 如果想要找那些其他组织贡献的 starters, 查阅 GitHub 中 `spring-boot-starters` 模块中的 [README file](https://github.com/spring-projects/spring-boot/tree/master/spring-boot-project/spring-boot-starters/README.adoc)  
+
+
+
+
+
+
+
+
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/Part-III-Using-Spring-Boot.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/14-Structuring-Your-Code.md)     
+

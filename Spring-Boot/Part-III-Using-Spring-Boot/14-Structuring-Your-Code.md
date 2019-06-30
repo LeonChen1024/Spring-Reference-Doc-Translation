@@ -1,5 +1,15 @@
 # 14. 结构化你的代码
 
+
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/13-Build-Systems.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/15-Configuration-Classes.md)     
+
+
+
+
+
 Spring Boot 的运行并没有要求特殊的代码布局.尽管如此, 这里也有一些最好的方式可以帮助到你.
 
 ## 14.1 使用 “默认” 包
@@ -8,9 +18,7 @@ Spring Boot 的运行并没有要求特殊的代码布局.尽管如此, 这里�
 
 
 
-> 
->
-> ## 
+> 我们推荐你遵循 Java 的推荐包命名规则并且使用一个域名的倒序(比如,com.example.project)
 
 
 
@@ -60,6 +68,16 @@ public class Application {
 
 }
 ```
+
+
+
+
+
+
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/13-Build-Systems.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/15-Configuration-Classes.md)     
 
 
 

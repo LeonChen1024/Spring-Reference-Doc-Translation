@@ -3,6 +3,12 @@
 
 
 
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/Part-II-Getting-Started.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/9-System-Requirements.md)             
+
+
+
 Spring Boot 让你可以轻松的创建并运行独立的,生产级别的基于 Spring 的应用.我们对 Spring 平台和其他第三方库做了一个主观的配置,这样你就可以远离这些烦人的东西.大部分 Spring Boot 应用只需要很少的 Spring 配置.
 
 你可以使用 Spring Boot 来创建一个 Java 应用,这个应用可以使用 `java -jar` 或者使用 war 部署.我们还提供了一个命令行工具可以运行 "spring scripts".
@@ -17,6 +23,8 @@ Spring Boot 让你可以轻松的创建并运行独立的,生产级别的基于 
 
 
 
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/Part-II-Getting-Started.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/9-System-Requirements.md)     
 
 
 

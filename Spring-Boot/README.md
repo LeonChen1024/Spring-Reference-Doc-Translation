@@ -42,6 +42,24 @@ Phillip Webb, Dave Syer, Josh Long, Stéphane Nicoll, Rob Winch, Andy Wilkinson,
 
 ## [11-Developing-Your-First-Spring-Boot-Application](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/11-Developing-Your-First-Spring-Boot-Application.md)
 
+## [12-What-to-Read-Next](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-II-Getting-Started/12-What-to-Read-Next.md)
+
+# [Part-III-Using-Spring-Boot](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/Part-III-Using-Spring-Boot.md)
+
+## [13-Build-Systems](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/13-Build-Systems.md)
+
+## [14-Structuring-Your-Code](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/14-Structuring-Your-Code.md)
+
+## [15-Configuration-Classes](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/15-Configuration-Classes.md)
+
+
+
+
+
+
+
+
+
 
 
 
