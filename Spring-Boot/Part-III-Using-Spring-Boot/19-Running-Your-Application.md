@@ -2,7 +2,7 @@
 
 
 
-[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/17-Spring-Beans-and-Dependency-Injection.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/19-Running-Your-Application.md)     
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/18-Using-the-SpringBootApplication-Annotation.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/20-Developer-Tools.md)     
 
 
 
@@ -70,8 +70,6 @@ $ export JAVA_OPTS=-Xmx1024m
 因为 Spring Boot 应用是一个纯Java 应用,JVM hot-swapping 也是开相继用的. JVM hot swapping 受限于它可以替换的字节码. 想要一个更完整的解决方案,可以使, [JRebel](https://zeroturnaround.com/software/jrebel/) .
 
  `spring-boot-devtools` 模块同样包含了快速重启应用的支持. 可以查阅 [ 20章, *开发者工具*](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/using-boot-devtools.html) 和 [Hot swapping “How-to”](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/howto-hotswapping.html) 来获取更多细节.
-
-
 
 
 

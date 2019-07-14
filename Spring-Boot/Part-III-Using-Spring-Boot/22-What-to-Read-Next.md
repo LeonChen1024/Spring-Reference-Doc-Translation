@@ -1,0 +1,54 @@
+# 22. 接下来要阅读什么
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/21-Packaging-Your-Application-for-Production.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-IV-Spring-Boot-features/Part-IV-Spring-Boot-features.md)     
+
+
+
+你现在应该要明白你该如何使用 Spring Boot 并且如何更好的实践. 现在你可以继续深入了解一些 [Spring Boot 功能](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/boot-features.html), 或者你可以跳过这里直接阅读 Spring Boot的 “[production ready](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/production-ready.html)” .
+
+
+
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/21-Packaging-Your-Application-for-Production.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-IV-Spring-Boot-features/Part-IV-Spring-Boot-features.md)     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
