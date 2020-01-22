@@ -4,7 +4,7 @@
 
 
 
-[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/22-What-to-Read-Next.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-IV-Spring-Boot-features/23-SpringApplication.md)     
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/22-What-to-Read-Next.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-IV-Spring-Boot-features/24-Externalized-Configuration.md)     
 
 
 
@@ -173,35 +173,105 @@ new SpringApplicationBuilder()
 
 ## 23.6 Web 环境
 
-A `SpringApplication` attempts to create the right type of `ApplicationContext` on your behalf. The algorithm used to determine a `WebApplicationType` is fairly simple:
+ `SpringApplication` 会通过你的行为来创建正确类型的 `ApplicationContext` . 用来判断一个 `WebApplicationType` 的算法是非常简单的:
 
- 
+- 如果存在 Spring MVC, 会使用 `AnnotationConfigServletWebServerApplicationContext` 
+- 如果不存在 Spring MVC 但是存在 Spring WebFlux, 会使用 `AnnotationConfigReactiveWebServerApplicationContext`
+- 否则, 使用 `AnnotationConfigApplicationContext` 
 
+这意味着如果你使用 Spring MVC 并且这个项目里还有  Spring WebFlux 的 `WebClient`, 会默认使用 Spring MVC . 你可以通过调用 `setWebApplicationType(WebApplicationType)` 来重写它.
 
+还可以通过调用  `setApplicationContextClass(…)` 来完全控制 `ApplicationContext` 使用的类型.
 
-
-
-
-
-
-
-
+> 通常在使用 `SpringApplication` 配合 JUnit 测试的时候要调用  `setWebApplicationType(WebApplicationType.NONE)` .
 
 
 
+## 23.7 访问应用参数
+
+如果你需要访问传递到  `SpringApplication.run(…)` 的应用参数, 你可以注入一个`org.springframework.boot.ApplicationArguments` bean.  `ApplicationArguments` 接口提供了可以访问原始 `String[]` 参数以及解析 `option` 和 `non-option` 参数, 如下所示:
+
+```java
+import org.springframework.boot.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+
+@Component
+public class MyBean {
+
+	@Autowired
+	public MyBean(ApplicationArguments args) {
+		boolean debug = args.containsOption("debug");
+		List<String> files = args.getNonOptionArgs();
+		// if run with "--debug logfile.txt" debug=true, files=["logfile.txt"]
+	}
+
+}
+```
+
+> Spring Boot 还注册了一个 `CommandLinePropertySource` 在 Spring `Environment`. 这使得你还可以通过使用 `@Value` 注解来注入一个应用参数.
+
+## 23.8 使用 ApplicationRunner 或者 CommandLineRunner
+
+如果你想要在 `SpringApplication` 应用启动的时候运行一段指定代码, 你可以实现 `ApplicationRunner` 或者 `CommandLineRunner` 接口. 两个接口都使用相同的工作方式并且提供了一个 `run` 方法, 会在 `SpringApplication.run(…)` 完成之前调用.
+
+ `CommandLineRunner` 接口提供了以一个简单的字符串数组的形式访问应用参数的方式,而 `ApplicationRunner` 使用了 `ApplicationArguments` 接口. 下面的例子展示了 `CommandLineRunner` 和一个  `run` :
+
+```java
+import org.springframework.boot.*;
+import org.springframework.stereotype.*;
+
+@Component
+public class MyBean implements CommandLineRunner {
+
+	public void run(String... args) {
+		// Do something...
+	}
+
+}
+```
+
+如果有一些 `CommandLineRunner` 或者 `ApplicationRunner` bean 必须要以一个指定的顺序进行调用,你可以选择实现`org.springframework.core.Ordered` 接口或者使用 `org.springframework.core.annotation.Order` 注解.
+
+## 23.9 应用退出
+
+每个 `SpringApplication` 都会注册一个JVM的关闭钩子来确保 `ApplicationContext` 可以在退出的时候优雅的关闭. 所有标准的 Spring 生命周期回调 (比如 `DisposableBean` 接口或者 `@PreDestroy` 注解)都可以使用.
+
+此外, bean 可以实现 `org.springframework.boot.ExitCodeGenerator` 接口如果他们想要在 `SpringApplication.exit()` 被调用的时候返回一个指定的退出码. 这个退出码可以被传递到 `System.exit()` 来作为一个状态码返回,如下所示:
+
+```java
+@SpringBootApplication
+public class ExitCodeApplication {
+
+	@Bean
+	public ExitCodeGenerator exitCodeGenerator() {
+		return () -> 42;
+	}
+
+	public static void main(String[] args) {
+		System.exit(SpringApplication.exit(SpringApplication.run(ExitCodeApplication.class, args)));
+	}
+
+}
+```
+
+同样的, `ExitCodeGenerator` 接口可以被异常实现.当这个异常发生的时候, Spring Boot 返回 `getExitCode()` 方法中的值作为退出码.
+
+## 23.10 Admin 特性
+
+通过指定  `spring.application.admin.enabled`  属性可以启用 admin-related 特性. 这回暴露[SpringApplicationAdminMXBean`](https://github.com/spring-projects/spring-boot/tree/v2.1.6.RELEASE/spring-boot-project/spring-boot/src/main/java/org/springframework/boot/admin/SpringApplicationAdminMXBean.java)  在 `MBeanServer` 平台上. 你可以使用这个功能来远程管理你的 Spring Boot 应用. 这个特性对所有的服务包裹的实现都是很有用的.
+
+> 如果你想要知道应用运行在哪个 HTTP 端口上,可以通过 `local.server.port` 键来获取.
+
+**警告**
+
+当启用了这个特性的时候要小心, MBean 会暴露一个方法可以关闭应用.
 
 
 
 
 
-
-
-
-
-
-
-
-
+[上一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-III-Using-Spring-Boot/22-What-to-Read-Next.md)                                											[主页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/tree/master/Spring-Boot)																				[下一页](https://github.com/LeonChen1024/Spring-Reference-Doc-Translation/blob/master/Spring-Boot/Part-IV-Spring-Boot-features/24-Externalized-Configuration.md)     
 
 
 
